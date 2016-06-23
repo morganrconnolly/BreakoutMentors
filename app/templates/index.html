@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+	{% block content %}
+
+	{% if current_user.is_authenticated %}
+	<a href="{{ url_for('user', nickname=g.user.nickname) }}">Your Profile</a>
+	{% else %}
+	Welcome to Your Breakout Mentor's hub. Click below to go to the login page!<p>
+	<a href ="/login">Login</a></p>
+	{% endif %}
+
+
+	{% endblock %}

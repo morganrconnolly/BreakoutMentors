@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+	{% block content %}
+	<a href ="/index">Home</a></p>
+
+	<form action="" method="post" name="edit">
+      {{ form.hidden_tag() }}
+      <table>
+          <tr>
+              <td>Add student:</td>
+              <td>{{ form.name(size=24, maxlength=140) }}</td>
+              <td>
+              {% for error in form.name.errors %}
+              <span style="color: red;">[{{ error }}]</span><br>
+              {% endfor %}
+              </td>
+          </tr>
+          <tr>
+              <td></td>
+              <td><input type="submit" value="Add"></td>
+              <td></td>
+          </tr>
+      </table>
+       {% for student in students %}
+  	<p>
+    {{ student.name }} is a student of yours
+
+
+  	</p>
+  	{% endfor %}
+  </form>
+
+	{% endblock %}
